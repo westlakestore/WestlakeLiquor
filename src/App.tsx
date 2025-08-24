@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, Clock, MapPin, Wine, X } from 'lucide-react';
+import WestlakeLiquorLogo from './components/Logo';
 
 const AgeVerificationModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
   if (!isOpen) return null;
@@ -110,10 +111,9 @@ const App = () => {
         <header className="bg-black shadow-lg sticky top-0 z-40">
           <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center py-4">
-              <div className="flex items-center space-x-2">
-                <Wine className="w-8 h-8 text-amber-500" />
-                <span className="text-3xl font-extrabold text-white font-serif tracking-wide">Westlake Liquor</span>
-               </div>
+              <div className="flex items-center">
+                <WestlakeLiquorLogo className="w-56 h-14" />
+              </div>
               <div className="hidden md:flex space-x-8">
                 <button onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Home</button>
                 <button onClick={() => scrollToSection('products')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Products</button>
@@ -258,9 +258,8 @@ const App = () => {
         {/* Footer */}
         <footer className="bg-black py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="flex items-center justify-center space-x-2 mb-4">
-              <Wine className="w-8 h-8 text-amber-500" />
-              <span className="text-2xl font-bold text-white">Westlake Liquor</span>
+            <div className="flex items-center justify-center mb-4">
+              <WestlakeLiquorLogo className="w-48 h-12" />
             </div>
             <p className="text-gray-400 mb-4"> Your go-to spot for wines, spirits, and craft drinks.</p>
             <p className="text-gray-500">© 2025 Westlake Liquor. All rights reserved. Please drink responsibly.</p>
