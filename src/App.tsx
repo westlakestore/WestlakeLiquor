@@ -79,7 +79,7 @@ const Header = ({ scrollToSection }: { scrollToSection: (sectionId: string) => v
           {/* Right: Instagram Icon + Mobile Menu */}
           <div className="flex items-center space-x-4">
             <a 
-              href="https://instagram.com/yourpage"
+              href="https://www.instagram.com/westlakeliquorstore"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-amber-500 transition-colors duration-300"
