@@ -113,6 +113,11 @@ const App = () => {
             <div className="flex justify-between items-center py-4">
               <div className="flex items-center">
                 <WestlakeLiquorLogo className="h-12 w-auto max-w-xs" />
+                <div className="ml-4 hidden lg:block">
+                  <p className="text-gray-300 text-sm italic">
+                    Your go-to spot for wines, spirits, and craft drinks.
+                  </p>
+                </div>
               </div>
               <div className="hidden md:flex space-x-8">
                 <button onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Home</button>
