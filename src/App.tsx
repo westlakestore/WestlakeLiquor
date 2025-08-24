@@ -112,7 +112,7 @@ const App = () => {
           <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center py-4">
               <div className="flex items-center">
-                <WestlakeLiquorLogo className="w-56 h-14" />
+                <WestlakeLiquorLogo className="h-12 w-auto max-w-xs" />
               </div>
               <div className="hidden md:flex space-x-8">
                 <button onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Home</button>
@@ -259,7 +259,7 @@ const App = () => {
         <footer className="bg-black py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="flex items-center justify-center mb-4">
-              <WestlakeLiquorLogo className="w-48 h-12" />
+              <WestlakeLiquorLogo className="h-10 w-auto max-w-sm" />
             </div>
             <p className="text-gray-400 mb-4"> Your go-to spot for wines, spirits, and craft drinks.</p>
             <p className="text-gray-500">© 2025 Westlake Liquor. All rights reserved. Please drink responsibly.</p>
