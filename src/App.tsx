@@ -131,7 +131,7 @@ const App = () => {
                   <button onClick={() => scrollToSection('location')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Location</button>
                 </div>
                 <a
-                  href="https://www.instagram.com/yourpage"
+                  href="https://www.instagram.com/westlakeliquorstore"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-amber-500 transition-colors duration-300"
