@@ -106,29 +106,29 @@ const App = () => {
     <>
       <AgeVerificationModal isOpen={showAgeVerification} onClose={handleAgeVerification} />
       
-      <div className="min-h-screen bg-gray-900 text-white">
-        {/* Header */}
-        <header className="bg-black shadow-lg sticky top-0 z-40">
-          <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center py-4">
-              <div className="flex items-center">
-                <WestlakeLiquorLogo className="h-12 w-auto max-w-xs" />
-                <div className="ml-4 hidden lg:block">
-                  <p className="text-white text-sm italic">
-                    Your go-to spot for wines, spirits, and craft drinks.
-                  </p>
-                </div>
-              </div>
-              <div className="hidden md:flex space-x-8">
-                <button onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Home</button>
-                <button onClick={() => scrollToSection('products')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Products</button>
-                <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Contact</button>
-                <button onClick={() => scrollToSection('location')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Location</button>
-              </div>
-            </div>
-          </nav>
-        </header>
-
+     <div className="min-h-screen bg-gray-900 text-white">
+  {/* Header */}
+  <header className="bg-black shadow-lg sticky top-0 z-40">
+    <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="flex flex-wrap justify-between items-center py-4">
+        <div className="flex flex-wrap items-center">
+          <WestlakeLiquorLogo className="h-12 w-auto max-w-xs" />
+          <div className="ml-4 mt-2 sm:mt-0 text-center sm:text-left w-full sm:w-auto">
+            <p className="text-white text-sm italic">
+              Your go-to spot for wines, spirits, and craft drinks.
+            </p>
+          </div>
+        </div>
+        <div className="hidden md:flex space-x-8 mt-4 md:mt-0 w-full md:w-auto justify-center md:justify-end">
+          <button onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Home</button>
+          <button onClick={() => scrollToSection('products')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Products</button>
+          <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Contact</button>
+          <button onClick={() => scrollToSection('location')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Location</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+</div>
         {/* Hero Section */}
         <section id="home" className="relative py-20 bg-cover bg-center bg-no-repeat" style={{
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(17, 24, 39, 0.8)), url('https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')`
