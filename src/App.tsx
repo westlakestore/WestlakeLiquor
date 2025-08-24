@@ -2,13 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Phone, Clock, MapPin } from 'lucide-react';
 import WestlakeLiquorLogo from './components/Logo';
 
-const AgeVerificationModal = ({
-  isOpen,
-  onClose,
-}: {
-  isOpen: boolean;
-  onClose: () => void;
-}) => {
+const AgeVerificationModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
   if (!isOpen) return null;
 
   return (
@@ -16,12 +10,9 @@ const AgeVerificationModal = ({
       <div className="bg-gray-900 rounded-lg p-8 max-w-md w-full border border-amber-500 shadow-2xl">
         <div className="text-center">
           <WestlakeLiquorLogo className="w-16 h-16 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-white mb-4">
-            Age Verification Required
-          </h2>
+          <h2 className="text-2xl font-bold text-white mb-4">Age Verification Required</h2>
           <p className="text-gray-300 mb-6">
-            You must be 21 years or older to view this website. Please confirm
-            your age to continue.
+            You must be 21 years or older to view this website. Please confirm your age to continue.
           </p>
           <div className="flex gap-4 justify-center">
             <button
@@ -31,7 +22,7 @@ const AgeVerificationModal = ({
               I am 21 or older
             </button>
             <button
-              onClick={() => (window.location.href = 'https://google.com')}
+              onClick={() => window.location.href = 'https://google.com'}
               className="bg-gray-700 hover:bg-gray-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300"
             >
               Under 21
@@ -43,15 +34,7 @@ const AgeVerificationModal = ({
   );
 };
 
-const ProductCard = ({
-  title,
-  description,
-  imageUrl,
-}: {
-  title: string;
-  description: string;
-  imageUrl: string;
-}) => (
+const ProductCard = ({ title, description, imageUrl }: { title: string; description: string; imageUrl: string }) => (
   <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-gray-700">
     <div className="h-64 overflow-hidden">
       <img
@@ -86,55 +69,40 @@ const App = () => {
 
   const products = [
     {
-      title: 'Great selection of Wine',
-      description:
-        'Explore our wide variety of red, white, and sparkling wines from top vineyards around the world—perfect for any mood, meal, or celebration.',
-      imageUrl:
-        'https://www.eatingwell.com/thmb/zzGBb0QfRQSjGHX6Scvo7VDscu8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5-most-popular-wines-adf91bc28ae94efa9d8eaa852ea7122f.jpg',
+      title: "Great selection of Wine",
+      description: "Explore our wide variety of red, white, and sparkling wines from top vineyards.",
+      imageUrl: "https://www.eatingwell.com/thmb/zzGBb0QfRQSjGHX6Scvo7VDscu8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5-most-popular-wines-adf91bc28ae94efa9d8eaa852ea7122f.jpg"
     },
     {
-      title: 'Whiskey',
-      description:
-        'From small-batch bourbon to aged scotch and spicy rye—we’ve got the good stuff!',
-      imageUrl:
-        'https://mybartender.com/wp-content/uploads/2023/09/best-selling-whiskey.png',
+      title: "Whiskey",
+      description: "From small-batch bourbon to aged scotch and spicy rye—we’ve got the good stuff!",
+      imageUrl: "https://mybartender.com/wp-content/uploads/2023/09/best-selling-whiskey.png"
     },
     {
-      title: 'Craft Beer',
-      description:
-        'Local and international craft beers, IPAs, stouts, and seasonal brews.',
-      imageUrl:
-        'https://images.pexels.com/photos/1552630/pexels-photo-1552630.jpeg',
+      title: "Craft Beer",
+      description: "Local and international craft beers, IPAs, stouts, and seasonal brews.",
+      imageUrl: "https://images.pexels.com/photos/1552630/pexels-photo-1552630.jpeg"
     },
     {
-      title: 'Vodka',
-      description:
-        'Clean, crisp, and distilled to perfection—made from the finest ingredients for a smooth finish every time.',
-      imageUrl:
-        'https://assets.bonappetit.com/photos/663cdc3709730b874e26baad/4:3/w_4444,h_3333,c_limit/vodka-taste-test_LEDE_050824_0065_VOG_final.jpg',
+      title: "Vodka",
+      description: "Clean, crisp, and distilled to perfection—made from the finest ingredients.",
+      imageUrl: "https://assets.bonappetit.com/photos/663cdc3709730b874e26baad/4:3/w_4444,h_3333,c_limit/vodka-taste-test_LEDE_050824_0065_VOG_final.jpg"
     },
     {
-      title: 'Rum',
-      description:
-        'From dark and aged to spiced and golden, our rum selection brings bold, complex flavors perfect for mixing, sipping, or kicking back and relaxing.',
-      imageUrl:
-        'https://www.foodrepublic.com/img/gallery/whats-the-main-ingredient-needed-to-make-rum/intro-1727804844.jpg',
+      title: "Rum",
+      description: "Bold, complex flavors perfect for mixing, sipping, or relaxing.",
+      imageUrl: "https://www.foodrepublic.com/img/gallery/whats-the-main-ingredient-needed-to-make-rum/intro-1727804844.jpg"
     },
     {
-      title: 'Gin',
-      description:
-        'From smooth and crisp to bold and flavorful, our gin selection has something for every kind of cocktail—or just a refreshing G&T.',
-      imageUrl:
-        'https://hips.hearstapps.com/hmg-prod/images/index-gin-6448207f792bd.jpg?crop=0.5xw:1xh;center,top&resize=1200:*',
-    },
+      title: "Gin",
+      description: "Smooth and crisp to bold and flavorful, great for cocktails or G&T.",
+      imageUrl: "https://hips.hearstapps.com/hmg-prod/images/index-gin-6448207f792bd.jpg"
+    }
   ];
 
   return (
     <>
-      <AgeVerificationModal
-        isOpen={showAgeVerification}
-        onClose={handleAgeVerification}
-      />
+      <AgeVerificationModal isOpen={showAgeVerification} onClose={handleAgeVerification} />
 
       <div className="min-h-screen bg-gray-900 text-white">
         {/* Header */}
@@ -143,60 +111,34 @@ const App = () => {
             <div className="flex justify-between items-center py-4">
               <div className="flex items-center">
                 <WestlakeLiquorLogo className="h-12 w-auto max-w-xs" />
-                <div className="ml-4 text-left sm:block">
+                <div className="ml-4 hidden lg:block">
                   <p className="text-white text-sm italic">
                     Your go-to spot for wines, spirits, and craft drinks.
                   </p>
                 </div>
               </div>
               <div className="hidden md:flex space-x-8">
-                <button
-                  onClick={() => scrollToSection('home')}
-                  className="text-gray-300 hover:text-amber-500 transition-colors duration-300"
-                >
-                  Home
-                </button>
-                <button
-                  onClick={() => scrollToSection('products')}
-                  className="text-gray-300 hover:text-amber-500 transition-colors duration-300"
-                >
-                  Products
-                </button>
-                <button
-                  onClick={() => scrollToSection('contact')}
-                  className="text-gray-300 hover:text-amber-500 transition-colors duration-300"
-                >
-                  Contact
-                </button>
-                <button
-                  onClick={() => scrollToSection('location')}
-                  className="text-gray-300 hover:text-amber-500 transition-colors duration-300"
-                >
-                  Location
-                </button>
+                <button onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Home</button>
+                <button onClick={() => scrollToSection('products')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Products</button>
+                <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Contact</button>
+                <button onClick={() => scrollToSection('location')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Location</button>
               </div>
             </div>
           </nav>
         </header>
 
         {/* Hero Section */}
-        <section
-          id="home"
-          className="relative py-20 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(17,24,39,0.8)), url('https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')`,
-          }}
-        >
+        <section id="home" className="relative py-20 bg-cover bg-center bg-no-repeat" style={{
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(17,24,39,0.8)), url('https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')`
+        }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
               Westlake Liquor
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Your destination for a wide selection of wines, spirits, and craft
-              beverages. We also carry tobacco products, cold drinks, and all
-              the snacks you love! Everything you need, all in one place!
+              Your destination for a wide selection of wines, spirits, and craft beverages. We also carry tobacco products, cold drinks, and all the snacks you love!
             </p>
-            <button
+            <button 
               onClick={() => scrollToSection('products')}
               className="bg-amber-500 hover:bg-amber-600 text-black font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 hover:scale-105 shadow-lg"
             >
@@ -205,6 +147,85 @@ const App = () => {
           </div>
         </section>
 
-        {/* Store Information */}
+        {/* Products Section */}
+        <section id="products" className="py-16 bg-gray-900">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-4xl font-bold text-center mb-4 text-amber-500">Our Products</h2>
+            <p className="text-center text-gray-400 mb-12 text-lg">
+              Check out our handpicked selection of best-selling spirits and drinks!
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {products.map((product, index) => (
+                <ProductCard
+                  key={index}
+                  title={product.title}
+                  description={product.description}
+                  imageUrl={product.imageUrl}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Section */}
         <section id="contact" className="py-16 bg-gray-800">
-          <div className="max
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-4xl font-bold text-center mb-12 text-amber-500">Store Information</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center p-6 bg-gray-900 rounded-lg shadow-lg border border-gray-700">
+                <Clock className="w-12 h-12 text-amber-500 mx-auto mb-4" />
+                <h3 className="text-xl font-bold mb-4 text-white">Store Hours</h3>
+                <p className="text-gray-300">Daily: 9:00 AM - 11:00 PM</p>
+              </div>
+              <div className="text-center p-6 bg-gray-900 rounded-lg shadow-lg border border-gray-700">
+                <Phone className="w-12 h-12 text-amber-500 mx-auto mb-4" />
+                <h3 className="text-xl font-bold mb-4 text-white">Contact Us</h3>
+                <a 
+                  href="tel:+13034699795" 
+                  className="inline-block bg-amber-500 hover:bg-amber-600 text-black font-bold py-3 px-6 rounded-lg text-lg transition-all duration-300 hover:scale-105 shadow-lg"
+                >
+                  📞 Call (303) 469-9795
+                </a>
+              </div>
+              <div className="text-center p-6 bg-gray-900 rounded-lg shadow-lg border border-gray-700">
+                <MapPin className="w-12 h-12 text-amber-500 mx-auto mb-4" />
+                <h3 className="text-xl font-bold mb-4 text-white">Visit Us</h3>
+                <p className="text-gray-300">12920 Lowell Blvd, Broomfield, CO 80020</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Location Section */}
+        <section id="location" className="py-16 bg-gray-900">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-4xl font-bold text-center mb-12 text-amber-500">Find Us</h2>
+            <div className="bg-gray-900 p-4 rounded-lg shadow-lg border border-gray-700">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3059.484985176904!2d-105.03635908753765!3d39.93054017140317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b8a7f74b206dd%3A0x706f5d671ab0d5e6!2s12920%20Lowell%20Blvd%2C%20Broomfield%2C%20CO%2080020!5e0!3m2!1sen!2sus!4v1755891514982!5m2!1sen!2sus"
+                width="100%"
+                height="400"
+                style={{ border: 0, borderRadius: '8px' }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Store Location"
+              ></iframe>
+            </div>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="bg-black py-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <WestlakeLiquorLogo className="h-10 w-auto max-w-sm mx-auto mb-4" />
+            <p className="text-gray-400 mb-4">Your go-to spot for wines, spirits, and craft drinks.</p>
+            <p className="text-gray-500">© 2025 Westlake Liquor. All rights reserved. Please drink responsibly.</p>
+          </div>
+        </footer>
+      </div>
+    </>
+  );
+};
+
+export default App;
