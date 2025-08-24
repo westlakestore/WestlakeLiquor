@@ -129,12 +129,13 @@ const App = () => {
         <button onClick={() => scrollToSection('location')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Location</button>
       </div>
 
+
       {/* Instagram icon */}
-      <div className="flex items-center">
-        <a href="https://instagram.com/yourpage" target="_blank" rel="noopener noreferrer" className="text-white hover:text-amber-500">
-          <FaInstagram className="h-6 w-6" />
-        </a>
-      </div>
+<div className="flex items-center">
+  <a href="https://www.instagram.com/westlakeliquorstore" target="_blank" rel="noopener noreferrer" className="text-white hover:text-amber-500">
+    <Instagram className="w-6 h-6" />
+  </a>
+</div>
 
     </div>
   </nav>
