@@ -114,7 +114,7 @@ const App = () => {
               <div className="flex items-center">
                 <WestlakeLiquorLogo className="h-12 w-auto max-w-xs" />
                 <div className="ml-4 hidden lg:block">
-                  <p className="text-gray-300 text-sm italic">
+                  <p className="text-white text-sm italic">
                     Your go-to spot for wines, spirits, and craft drinks.
                   </p>
                 </div>
