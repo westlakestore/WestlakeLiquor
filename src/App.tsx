@@ -110,38 +110,35 @@ const App = () => {
       <div className="min-h-screen bg-gray-900 text-white">
         {/* Header */}
         <header className="bg-black shadow-lg sticky top-0 z-40">
-          <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center py-4">
-              {/* Logo + tagline */}
-              <div className="flex items-center">
-                <WestlakeLiquorLogo className="h-12 w-auto max-w-xs" />
-                <div className="ml-4 hidden lg:block">
-                  <p className="text-white text-sm italic">
-                    Your go-to spot for wines, spirits, and craft drinks.
-                  </p>
-                </div>
-              </div>
+  <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex justify-between items-center py-4">
+      
+      {/* Logo and text */}
+      <div className="flex items-center space-x-4">
+        <WestlakeLiquorLogo className="h-12 w-auto max-w-xs" />
+        <p className="text-white text-sm italic hidden sm:block">
+          Your go-to spot for wines, spirits, and craft drinks.
+        </p>
+      </div>
 
-              {/* Navigation buttons + Instagram icon */}
-              <div className="flex items-center space-x-4">
-                <div className="hidden md:flex space-x-8">
-                  <button onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Home</button>
-                  <button onClick={() => scrollToSection('products')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Products</button>
-                  <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Contact</button>
-                  <button onClick={() => scrollToSection('location')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Location</button>
-                </div>
-                <a
-                  href="https://www.instagram.com/westlakeliquorstore"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-amber-500 transition-colors duration-300"
-                >
-                  <Instagram className="w-6 h-6" />
-                </a>
-              </div>
-            </div>
-          </nav>
-        </header>
+      {/* Navigation buttons */}
+      <div className="hidden md:flex space-x-8">
+        <button onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Home</button>
+        <button onClick={() => scrollToSection('products')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Products</button>
+        <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Contact</button>
+        <button onClick={() => scrollToSection('location')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Location</button>
+      </div>
+
+      {/* Instagram icon */}
+      <div className="flex items-center">
+        <a href="https://instagram.com/yourpage" target="_blank" rel="noopener noreferrer" className="text-white hover:text-amber-500">
+          <FaInstagram className="h-6 w-6" />
+        </a>
+      </div>
+
+    </div>
+  </nav>
+</header>
 
         {/* Hero Section */}
         <section
