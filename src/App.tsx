@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, Clock, MapPin } from 'lucide-react';
 import WestlakeLiquorLogo from './components/Logo';
+import { Helmet } from 'react-helmet';
 
 const AgeVerificationModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
   if (!isOpen) return null;
@@ -35,12 +36,12 @@ const AgeVerificationModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: (
   );
 };
 
-const ProductCard = ({ title, description, imageUrl }: { title: string; description: string; imageUrl: string }) => (
+const ProductCard = ({ title, description, imageUrl, altText }: { title: string; description: string; imageUrl: string; altText: string }) => (
   <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-gray-700">
     <div className="h-64 overflow-hidden">
       <img 
         src={imageUrl} 
-        alt={title}
+        alt={altText}
         className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
       />
     </div>
@@ -69,44 +70,56 @@ const App = () => {
 
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-    setIsMenuOpen(false); // Close mobile menu after clicking
+    setIsMenuOpen(false);
   };
 
   const products = [
     {
       title: "Great selection of Wine",
       description: "Explore our wide variety of red, white, and sparkling wines from top vineyards around the world—perfect for any mood, meal, or celebration.",
-      imageUrl: "https://www.eatingwell.com/thmb/zzGBb0QfRQSjGHX6Scvo7VDscu8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5-most-popular-wines-adf91bc28ae94efa9d8eaa852ea7122f.jpg"
+      imageUrl: "https://www.eatingwell.com/thmb/zzGBb0QfRQSjGHX6Scvo7VDscu8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5-most-popular-wines-adf91bc28ae94efa9d8eaa852ea7122f.jpg",
+      altText: "Selection of red, white, and sparkling wines at Westlake Liquor"
     },
     {
       title: "Whiskey",
       description: "From small-batch bourbon to aged scotch and spicy rye—we’ve got the good stuff!",
-      imageUrl: "https://mybartender.com/wp-content/uploads/2023/09/best-selling-whiskey.png"
+      imageUrl: "https://mybartender.com/wp-content/uploads/2023/09/best-selling-whiskey.png",
+      altText: "Bottles of whiskey displayed at Westlake Liquor"
     },
     {
       title: "Craft Beer",
       description: "Local and international craft beers, IPAs, stouts, and seasonal brews.",
-      imageUrl: "https://images.pexels.com/photos/1552630/pexels-photo-1552630.jpeg"
+      imageUrl: "https://images.pexels.com/photos/1552630/pexels-photo-1552630.jpeg",
+      altText: "Assortment of craft beers in bottles and cans"
     },
     {
       title: "Vodka",
       description: "Clean, crisp, and distilled to perfection—made from the finest ingredients for a smooth finish every time.",
-      imageUrl: "https://assets.bonappetit.com/photos/663cdc3709730b874e26baad/4:3/w_4444,h_3333,c_limit/vodka-taste-test_LEDE_050824_0065_VOG_final.jpg"
+      imageUrl: "https://assets.bonappetit.com/photos/663cdc3709730b874e26baad/4:3/w_4444,h_3333,c_limit/vodka-taste-test_LEDE_050824_0065_VOG_final.jpg",
+      altText: "Vodka bottles on display at Westlake Liquor"
     },
     {
       title: "Rum",
       description: "From dark and aged to spiced and golden, our rum selection brings bold, complex flavors perfect for mixing, sipping, or kicking back and relaxing.",
-      imageUrl: "https://www.foodrepublic.com/img/gallery/whats-the-main-ingredient-needed-to-make-rum/intro-1727804844.jpg"
+      imageUrl: "https://www.foodrepublic.com/img/gallery/whats-the-main-ingredient-needed-to-make-rum/intro-1727804844.jpg",
+      altText: "Variety of rum bottles on shelf at Westlake Liquor"
     },
     {
       title: "Gin",
       description: "From smooth and crisp to bold and flavorful, our gin selection has something for every kind of cocktail—or just a refreshing G&T.",
-      imageUrl: "https://hips.hearstapps.com/hmg-prod/images/index-gin-6448207f792bd.jpg?crop=0.5xw:1xh;center,top&resize=1200:*"
+      imageUrl: "https://hips.hearstapps.com/hmg-prod/images/index-gin-6448207f792bd.jpg?crop=0.5xw:1xh;center,top&resize=1200:*",
+      altText: "Selection of gin bottles available at Westlake Liquor"
     }
   ];
 
   return (
     <>
+      <Helmet>
+        <title>Westlake Liquor | Best Liquor Store in Broomfield, Colorado</title>
+        <meta name="description" content="Westlake Liquor in Broomfield, CO offers a wide selection of wines, spirits, craft beer, and more. Visit us today for your favorite drinks and snacks!" />
+        <meta name="keywords" content="liquor store Colorado, wine, spirits, craft beer, vodka, whiskey, rum, gin, Westlake Liquor" />
+      </Helmet>
+
       <AgeVerificationModal isOpen={showAgeVerification} onClose={handleAgeVerification} />
 
       <div className="min-h-screen bg-gray-900 text-white">
@@ -114,8 +127,6 @@ const App = () => {
         <header className="bg-black shadow-lg sticky top-0 z-40">
           <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center py-4">
-              
-              {/* Logo and text */}
               <div className="flex items-center space-x-4">
                 <WestlakeLiquorLogo className="h-12 w-auto max-w-xs" />
                 <p className="text-white text-xs sm:text-sm italic">
@@ -123,7 +134,6 @@ const App = () => {
                 </p>
               </div>
 
-              {/* Desktop Navigation */}
               <div className="hidden md:flex space-x-8">
                 <button onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Home</button>
                 <button onClick={() => scrollToSection('products')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Products</button>
@@ -131,18 +141,13 @@ const App = () => {
                 <button onClick={() => scrollToSection('location')} className="text-gray-300 hover:text-amber-500 transition-colors duration-300">Location</button>
               </div>
 
-              {/* Mobile Menu Button */}
               <div className="md:hidden">
-                <button
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="text-white hover:text-amber-500 focus:outline-none text-2xl"
-                >
+                <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-white hover:text-amber-500 focus:outline-none text-2xl">
                   ☰
                 </button>
               </div>
             </div>
 
-            {/* Mobile Dropdown with smooth slide down/up */}
             <div className={`md:hidden overflow-hidden transition-all duration-500 ${isMenuOpen ? 'max-h-60 mt-2' : 'max-h-0'}`}>
               <div className="bg-gray-800 rounded-lg shadow-lg">
                 <button onClick={() => scrollToSection('home')} className="block w-full text-left px-4 py-2 text-gray-300 hover:bg-amber-500 hover:text-black">Home</button>
@@ -171,8 +176,7 @@ const App = () => {
             </p>
             <button 
               onClick={() => scrollToSection('products')}
-              className="bg-amber-500 hover:bg-amber-600 text-black font-bold py-4 px-8 rounded-lg text-lg
-              transition-all duration-300 hover:scale-105 shadow-lg"
+              className="bg-amber-500 hover:bg-amber-600 text-black font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 hover:scale-105 shadow-lg"
             >
               Explore Our Product Selection
             </button>
@@ -191,7 +195,7 @@ const App = () => {
                   <p>Daily: 9:00 AM - 11:00 PM</p>
                 </div>
               </div>
-              
+
               <div className="text-center p-6 bg-gray-900 rounded-lg shadow-lg border border-gray-700">
                 <Phone className="w-12 h-12 text-amber-500 mx-auto mb-4" />
                 <h3 className="text-xl font-bold mb-4 text-white">Contact Us</h3>
@@ -202,7 +206,7 @@ const App = () => {
                   📞 Call (303) 469-9795
                 </a>
               </div>
-              
+
               <div className="text-center p-6 bg-gray-900 rounded-lg shadow-lg border border-gray-700">
                 <MapPin className="w-12 h-12 text-amber-500 mx-auto mb-4" />
                 <h3 className="text-xl font-bold mb-4 text-white">Visit Us</h3>
@@ -234,6 +238,7 @@ const App = () => {
                   title={product.title}
                   description={product.description}
                   imageUrl={product.imageUrl}
+                  altText={product.altText}
                 />
               ))}
             </div>
@@ -243,52 +248,80 @@ const App = () => {
         {/* Location Section */}
         <section id="location" className="py-16 bg-gray-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-center mb-12 text-amber-500">Find Us</h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-white">Conveniently Located</h3>
-                <p className="text-gray-300 text-lg">
-                  Visit our store in Broomfield, easily accessible by car or public transportation. 
-                  We offer convenient parking and are located near major shopping and dining areas.
-                </p>
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <MapPin className="w-6 h-6 text-amber-500 mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="text-white font-semibold">Address</p>
-                      <p className="text-gray-300">12920 Lowell Blvd Broomfield, CO 80020</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <Phone className="w-6 h-6 text-amber-500 mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="text-white font-semibold">Phone</p>
-                      <p className="text-gray-300">(303) 469-9795</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="bg-gray-900 p-4 rounded-lg shadow-lg border border-gray-700">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3059.484985176904!2d-105.03635908753765!3d39.93054017140317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b8a7f74b206dd%3A0x706f5d671ab0d5e6!2s12920%20Lowell%20Blvd%2C%20Broomfield%2C%20CO%2080020!5e0!3m2!1sen!2sus!4v1755891514982!5m2!1sen!2sus"
-                  width="100%"
-                  height="400"
-                  style={{ border: 0 }}
-                  allowFullScreen={false}
-                  loading="lazy"
-                  title="Westlake Liquor Location"
-                />
-              </div>
+            <h2 className="text-4xl font-bold text-center mb-8 text-amber-500">Our Location</h2>
+            <div className="aspect-w-16 aspect-h-9">
+              <iframe
+                title="Westlake Liquor Map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3092.774541050715!2d-105.03854708464204!3d39.93053997944216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b81c5d13f0e1f%3A0xc4311b3f91b5d0f1!2sWestlake%20Liquor!5e0!3m2!1sen!2sus!4v1692881643900!5m2!1sen!2sus"
+                width="100%"
+                height="450"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
         </section>
 
         {/* Footer */}
-        <footer className="bg-black py-8 mt-12">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
-            &copy; {new Date().getFullYear()} Westlake Liquor. All rights reserved. <p>Please Drink Responsibly.</p>
+        <footer className="bg-black py-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="flex items-center justify-center mb-4">
+              <WestlakeLiquorLogo className="h-10 w-auto max-w-sm" />
+            </div>
+            <p className="text-gray-400 mb-2">Your go-to spot for wines, spirits, and craft drinks in Broomfield, Colorado.</p>
+            <p className="text-gray-400 mb-4">Please Drink Responsibly.</p>
+            <p className="text-gray-500">© 2025 Westlake Liquor. All rights reserved.</p>
           </div>
+
+          {/* JSON-LD Structured Data */}
+          <script type="application/ld+json">
+            {`
+            {
+              "@context": "https://schema.org",
+              "@type": "LiquorStore",
+              "name": "Westlake Liquor",
+              "image": "https://yourwebsite.com/logo.png",
+              "@id": "https://yourwebsite.com",
+              "url": "https://yourwebsite.com",
+              "telephone": "+1-303-469-9795",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "12920 Lowell Blvd",
+                "addressLocality": "Broomfield",
+                "addressRegion": "CO",
+                "postalCode": "80020",
+                "addressCountry": "US"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 39.930540,
+                "longitude": -105.036359
+              },
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday"
+                  ],
+                  "opens": "09:00",
+                  "closes": "23:00"
+                }
+              ],
+              "sameAs": [
+                "https://www.facebook.com/yourpage",
+                "https://www.instagram.com/yourpage"
+              ]
+            }
+            `}
+          </script>
         </footer>
       </div>
     </>
