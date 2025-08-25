@@ -173,7 +173,7 @@ const App = () => {
               Westlake Liquor
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Your destination for a wide selection of wines, spirits, and craft beverages. We also carry tobacco products, cold drinks, and all the snacks you love! Everything you need, all in one place!
+              Welcome to Westlake Liquor in Broomfield, CO where we offer a wide selection of wines, spirits, craft beers, tobacco products, cold drinks, and snacks—all in one convenient location. Your go-to liquor store for all of your needs.
             </p>
             <button 
               onClick={() => scrollToSection('products')}
