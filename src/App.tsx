@@ -287,7 +287,7 @@ const App = () => {
         {/* Footer */}
         <footer className="bg-black py-8 mt-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
-            &copy; {new Date().getFullYear()} Westlake Liquor. All rights reserved.
+            &copy; {new Date().getFullYear()} Westlake Liquor. All rights reserved. <p>Please Drink Responsibly.</p>
           </div>
         </footer>
       </div>
