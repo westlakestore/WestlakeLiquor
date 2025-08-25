@@ -179,7 +179,117 @@ const App = () => {
           </div>
         </section>
 
-        {/* ... Remaining sections (Contact, Products, Location, Footer) remain unchanged ... */}
+        {/* Contact Section */}
+        <section id="contact" className="py-16 bg-gray-800">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-4xl font-bold text-center mb-12 text-amber-500">Store Information</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center p-6 bg-gray-900 rounded-lg shadow-lg border border-gray-700">
+                <Clock className="w-12 h-12 text-amber-500 mx-auto mb-4" />
+                <h3 className="text-xl font-bold mb-4 text-white">Store Hours</h3>
+                <div className="space-y-2 text-gray-300">
+                  <p>Daily: 9:00 AM - 11:00 PM</p>
+                </div>
+              </div>
+              
+              <div className="text-center p-6 bg-gray-900 rounded-lg shadow-lg border border-gray-700">
+                <Phone className="w-12 h-12 text-amber-500 mx-auto mb-4" />
+                <h3 className="text-xl font-bold mb-4 text-white">Contact Us</h3>
+                <a 
+                  href="tel:+13034699795" 
+                  className="inline-block bg-amber-500 hover:bg-amber-600 text-black font-bold py-3 px-6 rounded-lg text-lg transition-all duration-300 hover:scale-105 shadow-lg mb-2"
+                >
+                  📞 Call (303) 469-9795
+                </a>
+              </div>
+              
+              <div className="text-center p-6 bg-gray-900 rounded-lg shadow-lg border border-gray-700">
+                <MapPin className="w-12 h-12 text-amber-500 mx-auto mb-4" />
+                <h3 className="text-xl font-bold mb-4 text-white">Visit Us</h3>
+                <a 
+                  href="https://maps.google.com/maps?q=12920+Lowell+Blvd,+Broomfield,+CO+80020" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block bg-amber-500 hover:bg-amber-600 text-black font-bold py-3 px-6 rounded-lg text-lg transition-all duration-300 hover:scale-105 shadow-lg"
+                >
+                  🗺️ Get Directions
+                </a>
+                <p className="text-gray-400 mt-2">12920 Lowell Blvd, Broomfield, CO 80020</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Products Section */}
+        <section id="products" className="py-16 bg-gray-900">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-4xl font-bold text-center mb-4 text-amber-500">Our Products</h2>
+            <p className="text-center text-gray-400 mb-12 text-lg">
+              Check out our handpicked selection of best-selling spirits and drinks—favorites you’re sure to love!
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {products.map((product, index) => (
+                <ProductCard
+                  key={index}
+                  title={product.title}
+                  description={product.description}
+                  imageUrl={product.imageUrl}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Location Section */}
+        <section id="location" className="py-16 bg-gray-800">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-4xl font-bold text-center mb-12 text-amber-500">Find Us</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <h3 className="text-2xl font-bold text-white">Conveniently Located</h3>
+                <p className="text-gray-300 text-lg">
+                  Visit our store in Broomfield, easily accessible by car or public transportation. 
+                  We offer convenient parking and are located near major shopping and dining areas.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <MapPin className="w-6 h-6 text-amber-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="text-white font-semibold">Address</p>
+                      <p className="text-gray-300">12920 Lowell Blvd Broomfield, CO 80020</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <Phone className="w-6 h-6 text-amber-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="text-white font-semibold">Phone</p>
+                      <p className="text-gray-300">(303) 469-9795</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-gray-900 p-4 rounded-lg shadow-lg border border-gray-700">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3059.484985176904!2d-105.03635908753765!3d39.93054017140317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b8a7f74b206dd%3A0x706f5d671ab0d5e6!2s12920%20Lowell%20Blvd%2C%20Broomfield%2C%20CO%2080020!5e0!3m2!1sen!2sus!4v1755891514982!5m2!1sen!2sus"
+                  width="100%"
+                  height="400"
+                  style={{ border: 0 }}
+                  allowFullScreen={false}
+                  loading="lazy"
+                  title="Westlake Liquor Location"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="bg-black py-8 mt-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+            &copy; {new Date().getFullYear()} Westlake Liquor. All rights reserved.
+          </div>
+        </footer>
       </div>
     </>
   );
