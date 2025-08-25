@@ -76,37 +76,37 @@ const App = () => {
     {
       title: "Great selection of Wine",
       description: "Explore our wide variety of red, white, and sparkling wines from top vineyards around the world—perfect for any mood, meal, or celebration.",
-      imageUrl: "https://www.eatingwell.com/thmb/zzGBb0QfRQSjGHX6Scvo7VDscu8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5-most-popular-wines-adf91bc28ae94efa9d8eaa852ea7122f.jpg"
+      imageUrl: "https://www.eatingwell.com/thmb/zzGBb0QfRQSjGHX6Scvo7VDscu8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5-most-popular-wines-adf91bc28ae94efa9d8eaa852ea7122f.jpg",
       altText: "Bottles of red and white wine on display at Westlake Liquor in Broomfield, CO"
     },
     {
       title: "Whiskey",
       description: "From small-batch bourbon to aged scotch and spicy rye—we’ve got the good stuff!",
-      imageUrl: "https://mybartender.com/wp-content/uploads/2023/09/best-selling-whiskey.png"
+      imageUrl: "https://mybartender.com/wp-content/uploads/2023/09/best-selling-whiskey.png",
       altText: "Assorted whiskey bottles"
     },
     {
       title: "Craft Beer",
       description: "Local and international craft beers, IPAs, stouts, and seasonal brews.",
-      imageUrl: "https://images.pexels.com/photos/1552630/pexels-photo-1552630.jpeg"
+      imageUrl: "https://images.pexels.com/photos/1552630/pexels-photo-1552630.jpeg",
       altText: "Selection of craft beers in bottles and cans"
     },
     {
       title: "Vodka",
       description: "Clean, crisp, and distilled to perfection—made from the finest ingredients for a smooth finish every time.",
-      imageUrl: "https://assets.bonappetit.com/photos/663cdc3709730b874e26baad/4:3/w_4444,h_3333,c_limit/vodka-taste-test_LEDE_050824_0065_VOG_final.jpg"
+      imageUrl: "https://assets.bonappetit.com/photos/663cdc3709730b874e26baad/4:3/w_4444,h_3333,c_limit/vodka-taste-test_LEDE_050824_0065_VOG_final.jpg",
       altText: "Vodka bottles on display at Westlake Liquor"
     },
     {
       title: "Rum",
       description: "From dark and aged to spiced and golden, our rum selection brings bold, complex flavors perfect for mixing, sipping, or kicking back and relaxing.",
-      imageUrl: "https://www.foodrepublic.com/img/gallery/whats-the-main-ingredient-needed-to-make-rum/intro-1727804844.jpg"
+      imageUrl: "https://www.foodrepublic.com/img/gallery/whats-the-main-ingredient-needed-to-make-rum/intro-1727804844.jpg",
       altText: "Variety of rum bottles on shelf at Westlake Liquor"
     },
     {
       title: "Gin",
       description: "From smooth and crisp to bold and flavorful, our gin selection has something for every kind of cocktail—or just a refreshing G&T.",
-      imageUrl: "https://hips.hearstapps.com/hmg-prod/images/index-gin-6448207f792bd.jpg?crop=0.5xw:1xh;center,top&resize=1200:*"
+      imageUrl: "https://hips.hearstapps.com/hmg-prod/images/index-gin-6448207f792bd.jpg?crop=0.5xw:1xh;center,top&resize=1200:*",
       altText: "Selection of gin bottles available at Westlake Liquor"
     }
   ];
