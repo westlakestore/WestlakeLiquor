@@ -11,28 +11,33 @@ const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images: CarouselImage[] = [
-    {
-      url: "/WestlakeLiquorBroomfieldWine.png",
-      alt: "Wine selection at Westlake Liquor",
-      caption: "Premium Wine Selection"
-    },
-    {
-      url: "/WestlakeLiquorBroomfieldBeer.png",
-      alt: "Craft beer collection",
-      caption: "Local & International Craft Beers"
-    },
-    {
-      url: "/WestlakeLiquorBroomfieldWhiskey.png",
-      alt: "Whiskey and spirits display",
-      caption: "Premium Spirits & Whiskeys"
-    },
-  
-    {
-      url: "/WestlakeLiquorBroomfieldVodka.png",
-      alt: "Vodka and gin selection",
-      caption: "Premium Vodkas & Gins"
-    }
-  ];
+  {
+    url: "/WestlakeLiquorBroomfieldWine.jpg",
+    alt: "Wine selection at Westlake Liquor",
+    caption: "Premium Wine Selection"
+  },
+  {
+    url: "/WestlakeLiquorBroomfieldBeer.jpg",
+    alt: "Craft beer collection",
+    caption: "Local & International Craft Beers"
+  },
+  {
+    url: "/WestlakeLiquorBroomfieldWhiskey.png",
+    alt: "Whiskey and spirits display",
+    caption: "Premium Spirits & Whiskeys"
+  },
+  {
+    url: "/WestlakeLiquorBroomfieldVodka1.png",
+    alt: "Liquor store interior",
+    caption: "Wide Selection of Quality Products"
+  },
+  {
+    url: "/WestlakeLiquorBroomfieldVodka.png",
+    alt: "Vodka and gin selection",
+    caption: "Premium Vodkas & Gins"
+  }
+];
+
 
   // Auto-advance carousel every 5 seconds
   useEffect(() => {
