@@ -17,22 +17,22 @@ const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
       caption: "Premium Wine Selection"
     },
     {
-      url: "https://images.pexels.com/photos/1552630/pexels-photo-1552630.jpeg",
+      url: "/WestlakeLiquorBroomfieldBeer.png",
       alt: "Craft beer collection",
       caption: "Local & International Craft Beers"
     },
     {
-      url: "https://images.pexels.com/photos/602750/pexels-photo-602750.jpeg",
+      url: "/WestlakeLiquorBroomfieldWhiskey.png",
       alt: "Whiskey and spirits display",
       caption: "Premium Spirits & Whiskeys"
     },
     {
-      url: "https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg",
+      url: "/WestlakeLiquorBroomfieldVodka1.png",
       alt: "Liquor store interior",
       caption: "Wide Selection of Quality Products"
     },
     {
-      url: "https://images.pexels.com/photos/1170412/pexels-photo-1170412.jpeg",
+      url: "/WestlakeLiquorBroomfieldVodka.png",
       alt: "Vodka and gin selection",
       caption: "Premium Vodkas & Gins"
     }
