@@ -7,7 +7,7 @@ interface CarouselImage {
   caption: string;
 }
 
-const ImageCarousel = () => {
+const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images: CarouselImage[] = [
@@ -62,15 +62,19 @@ const ImageCarousel = () => {
   };
 
   return (
-    <section className="py-16 bg-gray-900">
+    <section className={isHero ? "relative" : "py-16 bg-gray-900"}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center mb-12 text-amber-500">
-          Experience Westlake Liquor
-        </h2>
+        {!isHero && (
+          <h2 className="text-4xl font-bold text-center mb-12 text-amber-500">
+            Experience Westlake Liquor
+          </h2>
+        )}
         
-        <div className="relative max-w-4xl mx-auto">
+        <div className={`relative ${isHero ? 'w-full' : 'max-w-4xl mx-auto'}`}>
           {/* Main carousel container */}
-          <div className="relative h-96 md:h-[500px] overflow-hidden rounded-lg shadow-2xl">
+          <div className={`relative overflow-hidden shadow-2xl ${
+            isHero ? 'h-[70vh] md:h-[80vh]' : 'h-96 md:h-[500px] rounded-lg'
+          }`}>
             {images.map((image, index) => (
               <div
                 key={index}
@@ -87,13 +91,34 @@ const ImageCarousel = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 
                 {/* Caption */}
-                <div className="absolute bottom-6 left-6 right-6">
+                <div className={`absolute left-6 right-6 ${isHero ? 'bottom-20' : 'bottom-6'}`}>
                   <h3 className="text-white text-xl md:text-2xl font-bold drop-shadow-lg">
                     {image.caption}
                   </h3>
                 </div>
               </div>
             ))}
+            
+            {/* Hero content overlay */}
+            {isHero && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center px-4 sm:px-6 lg:px-8 max-w-4xl">
+                  <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent drop-shadow-2xl">
+                    Westlake Liquor
+                  </h1>
+                  <p className="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto drop-shadow-lg">
+                    Welcome to Westlake Liquor in Broomfield, CO where we offer a wide selection of wines, spirits, craft beers, tobacco products, cold drinks, and snacks—all in one convenient location.
+                  </p>
+                  <button 
+                    onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="bg-amber-500 hover:bg-amber-600 text-black font-bold py-4 px-8 rounded-lg text-lg
+                    transition-all duration-300 hover:scale-105 shadow-lg"
+                  >
+                    Explore Our Product Selection
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Navigation arrows */}
@@ -114,7 +139,7 @@ const ImageCarousel = () => {
           </button>
 
           {/* Dot indicators */}
-          <div className="flex justify-center mt-6 space-x-2">
+          <div className={`flex justify-center space-x-2 ${isHero ? 'absolute bottom-4 left-1/2 transform -translate-x-1/2' : 'mt-6'}`}>
             {images.map((_, index) => (
               <button
                 key={index}

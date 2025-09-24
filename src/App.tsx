@@ -162,32 +162,10 @@ const App = () => {
         </header>
 
         {/* Hero Section */}
-        <section
-          id="home"
-          className="relative py-20 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(17,24,39,0.8)), url('https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')`
-          }}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
-              Westlake Liquor
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Welcome to Westlake Liquor in Broomfield, CO where we offer a wide selection of wines, spirits, craft beers, tobacco products, cold drinks, and snacks—all in one convenient location. 
-            </p>
-            <button 
-              onClick={() => scrollToSection('products')}
-              className="bg-amber-500 hover:bg-amber-600 text-black font-bold py-4 px-8 rounded-lg text-lg
-              transition-all duration-300 hover:scale-105 shadow-lg"
-            >
-              Explore Our Product Selection
-            </button>
-          </div>
+        {/* Hero Carousel Section */}
+        <section id="home">
+          <ImageCarousel isHero={true} />
         </section>
-
-        {/* Image Carousel */}
-        <ImageCarousel />
 
         {/* Contact Section */}
         <section id="contact" className="py-16 bg-gray-800">
