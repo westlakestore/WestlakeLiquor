@@ -45,7 +45,6 @@ const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
     }, 5000);
-
     return () => clearInterval(interval);
   }, [images.length]);
 
@@ -80,16 +79,16 @@ const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
             {images.map((image, index) => (
               <div
                 key={index}
-                className={`absolute inset-0 transition-opacity duration-1000 text-overlay ${
-                  index === currentIndex ? 'opacity-100' : 'opacity-0'
-                }`}
+                className={`absolute inset-0 transition-opacity duration-1000 ${
+                  index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                } text-overlay`}
               >
                 <img
                   src={image.url}
                   alt={image.alt}
                   className="w-full h-full object-cover"
                 />
-                {/* Optional gradient to soften image */}
+                {/* Optional gradient for better contrast */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
                 {/* Caption */}
@@ -107,15 +106,16 @@ const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
 
             {/* Hero content overlay */}
             {isHero && (
-              <div className="absolute inset-0 flex items-center justify-center text-overlay">
+              <div className="absolute inset-0 flex items-center justify-center text-overlay z-20">
                 <div className="text-center px-4 sm:px-6 lg:px-8 max-w-4xl">
                   <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent drop-shadow-2xl">
                     Westlake Liquor
                   </h1>
                   <p className="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto text-shadow-lg">
-                    Welcome to Westlake Liquor in Broomfield, CO where we offer a wide
-                    selection of wines, spirits, craft beers, tobacco products, cold
-                    drinks, and snacks — all in one convenient location.
+                    Welcome to Westlake Liquor in Broomfield, CO where we offer
+                    a wide selection of wines, spirits, craft beers, tobacco
+                    products, cold drinks, and snacks — all in one convenient
+                    location.
                   </p>
                 </div>
               </div>
