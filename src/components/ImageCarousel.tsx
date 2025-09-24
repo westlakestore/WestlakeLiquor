@@ -11,38 +11,37 @@ const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images: CarouselImage[] = [
-  {
-    url: "/WestlakeLiquorBroomfieldWine.jpg",
-    alt: "Wine selection at Westlake Liquor",
-    caption: "Premium Wine Selection"
-  },
-  {
-    url: "/WestlakeLiquorBroomfieldBeer.jpg",
-    alt: "Craft beer collection",
-    caption: "Local & International Craft Beers"
-  },
-  {
-    url: "/WestlakeLiquorBroomfieldWhiskey.jpg",
-    alt: "Whiskey and spirits display",
-    caption: "Premium Spirits & Whiskeys"
-  },
-  {
-    url: "/WestlakeLiquorBroomfieldVodka1.jpg",
-    alt: "Liquor store interior",
-    caption: "Wide Selection of Quality Products"
-  },
-  {
-    url: "/WestlakeLiquorBroomfieldVodka.jpg",
-    alt: "Vodka and gin selection",
-    caption: "Premium Vodkas & Gins"
-  }
-];
-
+    {
+      url: "/WestlakeLiquorBroomfieldWine.jpg",
+      alt: "Wine selection at Westlake Liquor",
+      caption: "Premium Wine Selection"
+    },
+    {
+      url: "/WestlakeLiquorBroomfieldBeer.jpg",
+      alt: "Craft beer collection",
+      caption: "Local & International Craft Beers"
+    },
+    {
+      url: "/WestlakeLiquorBroomfieldWhiskey.jpg",
+      alt: "Whiskey and spirits display",
+      caption: "Premium Spirits & Whiskeys"
+    },
+    {
+      url: "/WestlakeLiquorBroomfieldVodka1.jpg",
+      alt: "Liquor store interior",
+      caption: "Wide Selection of Quality Products"
+    },
+    {
+      url: "/WestlakeLiquorBroomfieldVodka.jpg",
+      alt: "Vodka and gin selection",
+      caption: "Premium Vodkas & Gins"
+    }
+  ];
 
   // Auto-advance carousel every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => 
+      setCurrentIndex((prevIndex) =>
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
     }, 5000);
@@ -70,16 +69,18 @@ const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
             Experience Westlake Liquor
           </h2>
         )}
-        
+
         <div className={`relative ${isHero ? 'w-full' : 'max-w-4xl mx-auto'}`}>
           {/* Main carousel container */}
-          <div className={`relative overflow-hidden shadow-2xl ${
-            isHero ? 'h-[70vh] md:h-[80vh]' : 'h-96 md:h-[500px] rounded-lg'
-          }`}>
+          <div
+            className={`relative overflow-hidden shadow-2xl ${
+              isHero ? 'h-[70vh] md:h-[80vh]' : 'h-96 md:h-[500px] rounded-lg'
+            }`}
+          >
             {images.map((image, index) => (
               <div
                 key={index}
-                className={`absolute inset-0 transition-opacity duration-1000 ${
+                className={`absolute inset-0 transition-opacity duration-1000 text-overlay ${
                   index === currentIndex ? 'opacity-100' : 'opacity-0'
                 }`}
               >
@@ -88,35 +89,34 @@ const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
                   alt={image.alt}
                   className="w-full h-full object-cover"
                 />
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                
+                {/* Optional gradient to soften image */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+
                 {/* Caption */}
-                <div className={`absolute left-6 right-6 ${isHero ? 'bottom-20' : 'bottom-6'}`}>
-                  <h3 className="text-white text-xl md:text-2xl font-bold drop-shadow-lg">
+                <div
+                  className={`absolute left-6 right-6 ${
+                    isHero ? 'bottom-20' : 'bottom-6'
+                  }`}
+                >
+                  <h3 className="text-white text-xl md:text-2xl font-bold text-shadow-lg">
                     {image.caption}
                   </h3>
                 </div>
               </div>
             ))}
-            
+
             {/* Hero content overlay */}
             {isHero && (
-              <div className="absolute inset-0 flex items-center justify-center">
+              <div className="absolute inset-0 flex items-center justify-center text-overlay">
                 <div className="text-center px-4 sm:px-6 lg:px-8 max-w-4xl">
                   <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent drop-shadow-2xl">
                     Westlake Liquor
                   </h1>
-                  <p className="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto drop-shadow-lg">
-                    Welcome to Westlake Liquor in Broomfield, CO where we offer a wide selection of wines, spirits, craft beers, tobacco products, cold drinks, and snacks—all in one convenient location.
+                  <p className="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto text-shadow-lg">
+                    Welcome to Westlake Liquor in Broomfield, CO where we offer a wide
+                    selection of wines, spirits, craft beers, tobacco products, cold
+                    drinks, and snacks — all in one convenient location.
                   </p>
-                  <button 
-                    onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="bg-amber-500 hover:bg-amber-600 text-black font-bold py-4 px-8 rounded-lg text-lg
-                    transition-all duration-300 hover:scale-105 shadow-lg"
-                  >
-                    Explore Our Product Selection
-                  </button>
                 </div>
               </div>
             )}
@@ -130,7 +130,7 @@ const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
-          
+
           <button
             onClick={goToNext}
             className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-300 hover:scale-110"
@@ -140,7 +140,13 @@ const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
           </button>
 
           {/* Dot indicators */}
-          <div className={`flex justify-center space-x-2 ${isHero ? 'absolute bottom-4 left-1/2 transform -translate-x-1/2' : 'mt-6'}`}>
+          <div
+            className={`flex justify-center space-x-2 ${
+              isHero
+                ? 'absolute bottom-4 left-1/2 transform -translate-x-1/2'
+                : 'mt-6'
+            }`}
+          >
             {images.map((_, index) => (
               <button
                 key={index}
