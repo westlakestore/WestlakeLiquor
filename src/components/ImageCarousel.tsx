@@ -72,6 +72,14 @@ const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
             <p className="text-sm sm:text-base md:text-lg text-white max-w-3xl mx-auto drop-shadow-sm">
               Welcome to Westlake Liquor in Broomfield, CO where we offer a wide selection of wines, spirits, craft beers, tobacco products, cold drinks, and snacks—all in one convenient location.
             </p>
+
+            {/* Hero button */}
+            <button 
+              onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
+              className="mt-4 sm:mt-6 md:mt-8 bg-amber-500 hover:bg-amber-600 text-black font-bold py-2 px-4 sm:py-3 sm:px-6 md:py-4 md:px-8 rounded-lg text-sm sm:text-base md:text-lg transition-all duration-300 hover:scale-105 shadow-lg drop-shadow-md"
+            >
+              Explore Our Product Selection
+            </button>
           </div>
         )}
 
