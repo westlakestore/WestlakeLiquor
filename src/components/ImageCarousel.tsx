@@ -12,27 +12,27 @@ const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
 
   const images: CarouselImage[] = [
     {
-      src= "/WestlakeLiquorBroomfieldWine.png",
+      url: "/WestlakeLiquorBroomfieldWine.png",
       alt: "Wine selection at Westlake Liquor",
       caption: "Premium Wine Selection"
     },
     {
-      src= "/WestlakeLiquorBroomfieldBeer.png",
+      url: "/WestlakeLiquorBroomfieldBeer.png",
       alt: "Craft beer collection",
       caption: "Local & International Craft Beers"
     },
     {
-      src= "/WestlakeLiquorBroomfieldWhiskey.png",
+      url: "/WestlakeLiquorBroomfieldWhiskey.png",
       alt: "Whiskey and spirits display",
       caption: "Premium Spirits & Whiskeys"
     },
     {
-      src= "/WestlakeLiquorBroomfieldVodka1.png",
+      url: "/WestlakeLiquorBroomfieldVodka1.png",
       alt: "Liquor store interior",
       caption: "Wide Selection of Quality Products"
     },
     {
-      src= "/WestlakeLiquorBroomfieldVodka.png",
+      url: "/WestlakeLiquorBroomfieldVodka.png",
       alt: "Vodka and gin selection",
       caption: "Premium Vodkas & Gins"
     }
