@@ -41,11 +41,10 @@ const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
   // Auto-advance carousel every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
+      setCurrentIndex(prevIndex =>
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
     }, 5000);
-
     return () => clearInterval(interval);
   }, [images.length]);
 
@@ -72,11 +71,7 @@ const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
 
         <div className={`relative ${isHero ? 'w-full' : 'max-w-4xl mx-auto'}`}>
           {/* Main carousel container */}
-          <div
-            className={`relative overflow-hidden shadow-2xl ${
-              isHero ? 'h-[70vh] md:h-[80vh]' : 'h-96 md:h-[500px] rounded-lg'
-            }`}
-          >
+          <div className={`relative overflow-hidden shadow-2xl ${isHero ? 'h-[70vh] md:h-[80vh]' : 'h-96 md:h-[500px] rounded-lg'}`}>
             {images.map((image, index) => (
               <div
                 key={index}
@@ -89,26 +84,28 @@ const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
                   alt={image.alt}
                   className="w-full h-full object-cover"
                 />
-                {/* Gradient overlay for text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                {/* Stronger gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
-                {/* Caption */}
-                <div className={`absolute left-6 right-6 ${isHero ? 'bottom-20' : 'bottom-6'}`}>
-                  <h3 className="text-white text-xl md:text-2xl font-bold drop-shadow-lg">
-                    {image.caption}
-                  </h3>
-                </div>
+                {/* Slide caption for non-hero slides with backdrop blur */}
+                {!isHero && (
+                  <div className="absolute left-6 right-6 bottom-6">
+                    <h3 className="text-white text-xl md:text-2xl font-bold drop-shadow-lg bg-black/50 backdrop-blur-sm p-2 rounded-md">
+                      {image.caption}
+                    </h3>
+                  </div>
+                )}
               </div>
             ))}
 
-            {/* Hero text overlay */}
+            {/* Hero overlay with semi-transparent backdrop + blur */}
             {isHero && (
               <div className="absolute inset-0 flex items-center justify-center z-20">
-                <div className="text-center px-4 sm:px-6 lg:px-8 max-w-4xl">
+                <div className="text-center px-4 sm:px-6 lg:px-8 max-w-4xl bg-black/50 backdrop-blur-sm p-6 rounded-lg">
                   <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent drop-shadow-2xl">
                     Westlake Liquor
                   </h1>
-                  <p className="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto drop-shadow-lg">
+                  <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto">
                     Welcome to Westlake Liquor in Broomfield, CO where we offer
                     a wide selection of wines, spirits, craft beers, tobacco
                     products, cold drinks, and snacks—all in one convenient
@@ -137,21 +134,13 @@ const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
           </button>
 
           {/* Dot indicators */}
-          <div
-            className={`flex justify-center space-x-2 ${
-              isHero
-                ? 'absolute bottom-4 left-1/2 transform -translate-x-1/2'
-                : 'mt-6'
-            }`}
-          >
+          <div className={`flex justify-center space-x-2 ${isHero ? 'absolute bottom-4 left-1/2 transform -translate-x-1/2' : 'mt-6'}`}>
             {images.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? 'bg-amber-500 scale-125'
-                    : 'bg-gray-400 hover:bg-gray-300'
+                  index === currentIndex ? 'bg-amber-500 scale-125' : 'bg-gray-400 hover:bg-gray-300'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
