@@ -32,7 +32,7 @@ const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
       caption: "Wide Selection of Quality Products"
     },
     {
-      url: "/WestlakeLiquorBroomfieldIPA.jpg",
+      url: "/WestlakeLiquorBroomfieldGin.jpg",
       alt: "Vodka and gin selection",
       caption: "Premium Vodkas & Gins"
     }
