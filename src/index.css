@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* --- Custom utilities for better text readability on images --- */
+.text-overlay {
+  position: relative;
+  z-index: 1;
+}
+
+.text-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* semi-transparent dark overlay */
+  z-index: -1;
+  border-radius: inherit; /* keeps rounded corners if parent has them */
+}
+
+/* Use this if your image is dark and you want a light haze instead */
+.text-overlay-light::before {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Optional: strong text shadow for better contrast */
+.text-shadow-lg {
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
