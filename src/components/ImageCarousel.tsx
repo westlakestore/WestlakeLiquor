@@ -22,17 +22,17 @@ const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
     caption: "Local & International Craft Beers"
   },
   {
-    url: "/WestlakeLiquorBroomfieldWhiskey.png",
+    url: "/WestlakeLiquorBroomfieldWhiskey.jpg",
     alt: "Whiskey and spirits display",
     caption: "Premium Spirits & Whiskeys"
   },
   {
-    url: "/WestlakeLiquorBroomfieldVodka1.png",
+    url: "/WestlakeLiquorBroomfieldVodka1.jpg",
     alt: "Liquor store interior",
     caption: "Wide Selection of Quality Products"
   },
   {
-    url: "/WestlakeLiquorBroomfieldVodka.png",
+    url: "/WestlakeLiquorBroomfieldVodka.jpg",
     alt: "Vodka and gin selection",
     caption: "Premium Vodkas & Gins"
   }
