@@ -38,7 +38,6 @@ const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
     }
   ];
 
-  // Auto-advance carousel every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex(prevIndex =>
@@ -63,15 +62,21 @@ const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
   return (
     <section className={isHero ? "relative" : "py-16 bg-gray-900"}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {!isHero && (
-          <h2 className="text-4xl font-bold text-center mb-12 text-amber-500">
-            Experience Westlake Liquor
-          </h2>
+
+        {/* Hero text on top for mobile */}
+        {isHero && (
+          <div className="text-center mb-4 sm:mb-6 px-2 sm:px-6 lg:px-8">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent drop-shadow-lg">
+              Westlake Liquor
+            </h1>
+            <p className="text-sm sm:text-base md:text-lg text-white max-w-3xl mx-auto drop-shadow-sm">
+              Welcome to Westlake Liquor in Broomfield, CO where we offer a wide selection of wines, spirits, craft beers, tobacco products, cold drinks, and snacks—all in one convenient location.
+            </p>
+          </div>
         )}
 
         <div className={`relative ${isHero ? 'w-full' : 'max-w-4xl mx-auto'}`}>
-          {/* Main carousel container */}
-          <div className={`relative overflow-hidden shadow-2xl ${isHero ? 'h-[70vh] md:h-[80vh]' : 'h-96 md:h-[500px] rounded-lg'}`}>
+          <div className={`relative overflow-hidden shadow-2xl ${isHero ? 'h-[50vh] sm:h-[60vh] md:h-[80vh]' : 'h-96 md:h-[500px] rounded-lg'}`}>
             {images.map((image, index) => (
               <div
                 key={index}
@@ -84,36 +89,20 @@ const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
                   alt={image.alt}
                   className="w-full h-full object-cover"
                 />
-                {/* Stronger gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
-                {/* Slide caption for non-hero slides with backdrop blur */}
+                {/* Gradient overlay shorter for better image visibility */}
+                <div className="absolute inset-x-0 bottom-0 h-1/3 sm:h-1/4 md:h-1/4 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+
+                {/* Slide captions for non-hero slides */}
                 {!isHero && (
                   <div className="absolute left-6 right-6 bottom-6">
-                    <h3 className="text-white text-xl md:text-2xl font-bold drop-shadow-lg bg-black/50 backdrop-blur-sm p-2 rounded-md">
+                    <h3 className="text-white text-lg md:text-2xl font-bold drop-shadow-lg bg-black/40 backdrop-blur-sm p-2 rounded-md">
                       {image.caption}
                     </h3>
                   </div>
                 )}
               </div>
             ))}
-
-            {/* Hero overlay with semi-transparent backdrop + blur */}
-            {isHero && (
-              <div className="absolute inset-0 flex items-center justify-center z-20">
-                <div className="text-center px-4 sm:px-6 lg:px-8 max-w-4xl bg-black/50 backdrop-blur-sm p-6 rounded-lg">
-                  <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent drop-shadow-2xl">
-                    Westlake Liquor
-                  </h1>
-                  <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto">
-                    Welcome to Westlake Liquor in Broomfield, CO where we offer
-                    a wide selection of wines, spirits, craft beers, tobacco
-                    products, cold drinks, and snacks—all in one convenient
-                    location.
-                  </p>
-                </div>
-              </div>
-            )}
           </div>
 
           {/* Navigation arrows */}
