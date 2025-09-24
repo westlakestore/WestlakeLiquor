@@ -12,7 +12,7 @@ const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
 
   const images: CarouselImage[] = [
     {
-      url: "https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg",
+      url: "/WestlakeLiquorBroomfieldWine.png",
       alt: "Wine selection at Westlake Liquor",
       caption: "Premium Wine Selection"
     },
