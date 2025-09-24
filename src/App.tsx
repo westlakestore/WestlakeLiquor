@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, Clock, MapPin } from 'lucide-react';
 import WestlakeLiquorLogo from './components/Logo';
+import ImageCarousel from './components/ImageCarousel';
 
 const AgeVerificationModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
   if (!isOpen) return null;
@@ -184,6 +185,9 @@ const App = () => {
             </button>
           </div>
         </section>
+
+        {/* Image Carousel */}
+        <ImageCarousel />
 
         {/* Contact Section */}
         <section id="contact" className="py-16 bg-gray-800">
