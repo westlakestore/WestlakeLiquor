@@ -26,11 +26,7 @@ const ImageCarousel = ({ isHero = false }: { isHero?: boolean }) => {
       alt: "Whiskey and spirits display",
       caption: "Premium Spirits & Whiskeys"
     },
-    {
-      url: "/WestlakeLiquorBroomfieldVodka1.png",
-      alt: "Liquor store interior",
-      caption: "Wide Selection of Quality Products"
-    },
+  
     {
       url: "/WestlakeLiquorBroomfieldVodka.png",
       alt: "Vodka and gin selection",
